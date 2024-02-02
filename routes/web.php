@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class,'index']);
+Route::get('/add', [WelcomeController::class, 'showAddForm'])->name('add.form');
+route::post('add_recipe', [WelcomeController::class,'add_recipe']);
+route::get('recipe', [WelcomeController::class,'show_recipe']);
+route::get('/delete/{id}', [WelcomeController::class, 'delete_recipe'])->name('delete_recipe');
+route::get('update_recipe/{id}', [WelcomeController::class,'update_recipe'])->name('update_recipe');
+route::post('edit_recipe/{id}', [WelcomeController::class,'edit_recipe']);
+Route::get('/search', [WelcomeController::class, 'search'])->name('recipes.search');
+route::get('/detail/{id}', [WelcomeController::class,'detail_recipe'])->name('detail');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
